@@ -41,7 +41,8 @@ int main()
 		cout << "\n" << endl;
 
 		if (dateGiven.size() != 10 || dateGiven[2] != '/' || dateGiven[5] != '/') {
-			cout << "Invalid date format.  Please use (mm/dd/yyyy)" << endl;
+			cout << "Invalid date format.  Please use (mm/dd/yyyy)\n" << endl;
+			return main();
 		}
 		else
 		{
@@ -51,28 +52,34 @@ int main()
 
 			if ((date.year < 999) || (date.year > 10000))
 			{
-				cout << "Invalid year \n";
+				cout << "Invalid year \n\n";
+				return main();
 			}
 			else if ((date.month == 1 || date.month == 3 || date.month == 5 || date.month == 7 ||
 				date.month == 8 || date.month == 10 || date.month == 12) && (date.day > 31 || date.day < 1))
 			{
-				cout << "Invalid day. Must be 1-31 \n";
+				cout << "Invalid day. Must be 1-31 \n\n";
+				return main();
 			}
 			else if ((date.month == 4 || date.month == 6 || date.month == 9 || date.month == 11) && (date.day > 30 || date.day < 1))
 			{
-				cout << "Invalid day. Must be 1-30 \n";
+				cout << "Invalid day. Must be 1-30 \n\n";
+				return main();
 			}
 			else if ((date.month < 1) || (date.month > 12))
 			{
-				cout << "Invalid month \n";
+				cout << "Invalid month \n\n";
+				return main();
 			}
 			else if ((date.month == 2) && (date.year % 4 != 0) && (date.day > 28 || date.day < 1))
 			{
-				cout << "Invalid day. Not leap year, must be 1-28 \n";
+				cout << "Invalid day. Not leap year, must be 1-28 \n\n";
+				return main();
 			}
 			else if ((date.month == 2) && (date.year % 4 == 0) && (date.day > 29 || date.day < 1))
 			{
-				cout << "Invalid day. Must be 1-29 \n";
+				cout << "Invalid day. Must be 1-29 \n\n";
+				return main();
 			}
 			else
 			{
