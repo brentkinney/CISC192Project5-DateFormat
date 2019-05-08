@@ -5,6 +5,14 @@
 #include <string>
 using namespace std;
 
+bool isLeapYear(int year)
+{
+	if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0))
+		return true;
+	else
+		return false;
+}
+
 struct Date {
 	int day;
 	int month;
@@ -71,7 +79,7 @@ int main()
 				cout << "Invalid month \n\n";
 				return main();
 			}
-			else if ((date.month == 2) && (date.year % 4 != 0) && (date.day > 28 || date.day < 1))
+			else if ((isLeapYear(date.year) == false) && (date.month == 2) && (date.day > 28 || date.day < 1))
 			{
 				cout << "Invalid day. Not leap year, must be 1-28 \n\n";
 				return main();
@@ -110,7 +118,7 @@ int main()
 					month = "December";
 
 				cout << date.month << "/" << date.day << "/" << date.year << " (US)" << endl;
-				cout << month << " " << date.day << "," << date.year << " (US Expanded)" << endl;
+				cout << month << " " << date.day << ", " << date.year << " (US Expanded)" << endl;
 				cout << date.day << " " << month << " " << date.year << " (US Military)" << endl;
 				cout << date.year << "-" << date.month << "-" << date.day << " (International)" << endl;
 			}
